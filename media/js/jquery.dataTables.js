@@ -2768,6 +2768,9 @@
 		var compat = function ( old, modern ) {
 			return json[old] !== undefined ? json[old] : json[modern];
 		};
+		
+		if(typeof(settings.ajax.result)=='function')
+			json=settings.ajax.result(json);
 	
 		var data = _fnAjaxDataSrc( settings, json );
 		var draw            = compat( 'sEcho',                'draw' );
